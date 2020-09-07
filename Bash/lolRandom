@@ -1,0 +1,38 @@
+#!/bin/bash
+
+lolRandom () {
+	
+	randGen | lolcat
+
+}
+
+randGen () {
+
+	lengthOfLine=45
+
+  for i in {1..500}
+  do
+  	
+  	declare -a randomNum
+  
+  	for j in $( seq 0 $lengthOfLine)
+  	do 	
+  		randomNum[j]=$(( $RANDOM % 1000))
+  	done 
+  
+  	for k in $( seq 0 $lengthOfLine)	
+  	do	
+  		echo -n ${randomNum[k]} ""  
+  	 	#sleep 0.005	
+  	done
+  
+  	echo 
+  	sleep 0.1
+  
+  done	
+
+}
+
+lolRandom 
+
+exit
