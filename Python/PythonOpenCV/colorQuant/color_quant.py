@@ -7,7 +7,7 @@ from cv2 import cv2
 import numpy as np
 
 def main():
-    """batch processing for color quantization using kmeans"""
+    """batch processing for color quantization using K-Means Algorithm"""
     path1 = 'Data/'
     path2 = 'Output/'
     backPath = '../'
@@ -28,9 +28,11 @@ def main():
 
             Z = img.reshape((-1, 3))
             Z = np.float32(Z)
-            criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
+            criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10,
+                        1.0)
             K = 2
-            ret, label, center = cv2.kmeans(Z, K, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+            ret, label, center = cv2.kmeans(Z, K, None, criteria, 10,
+                                            cv2.KMEANS_RANDOM_CENTERS)
             center = np.uint8(center)
             res = center[label.flatten()]
             res2 = res.reshape((img.shape))
@@ -43,7 +45,8 @@ def main():
         os.remove(i)
     os.chdir(path2)
     #subprocess.call(['mogrify', '*.png', '-spread', '40', '*.png'])
-    subprocess.call(['ffmpeg', '-i', 'frames%06d.png', '-framerate', '23', '-pix_fmt', 'yuv420p', 'process.mov'])            
+    subprocess.call(['ffmpeg', '-i', 'frames%06d.png', '-framerate', '23',
+                     '-pix_fmt', 'yuv420p', 'process.mov'])
     os.chdir(backPath)
     files2 = glob.glob(deletePath2)
     for j in files2:
