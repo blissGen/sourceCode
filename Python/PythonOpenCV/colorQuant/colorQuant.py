@@ -14,8 +14,6 @@ def main():
     deletePath1 = 'Data/*'
     deletePath2 = 'Output/*.png'
 
-    kernel = np.ones((5, 5), np.uint8)
-
     os.chdir(path1)
     subprocess.call(['ffmpeg', '-i', '00.mov', '-r', '23', 'frames%06d.png'])
     os.remove(sorceContent)
@@ -26,8 +24,19 @@ def main():
         if not frame.startswith('.'):
             print(frame)
             img = cv2.imread(os.path.join(path1, frame))
-            img_dilation = cv2.dilate(img, kernel, iterations=15)
-            cv2.imwrite('Output/' + str(frame), img_dilation)
+
+            Z = img.reshape((-1, 3))
+            Z = np.float32(Z)
+            criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10
+                    1.0)
+            K = 8 
+            ret,label,center=cv2.kmeans(Z,K,None,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
+            
+            center = np.uint8(center)
+            res = center[label.flatten()]
+            res2 = res.reshape((img.shape))
+
+            cv2.imwrite('Output/' + str(frame), res2)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
     files1 = glob.glob(deletePath1)
