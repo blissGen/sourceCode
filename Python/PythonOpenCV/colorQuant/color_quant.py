@@ -1,4 +1,4 @@
-"""batch image processing"""
+"""batch image processing for color quantization"""
 
 import os
 import subprocess
@@ -7,7 +7,7 @@ from cv2 import cv2
 import numpy as np
 
 def main():
-    """batch processing for color quantization for video"""
+    """batch processing for color quantization using kmeans"""
     path1 = 'Data/'
     path2 = 'Output/'
     backPath = '../'
