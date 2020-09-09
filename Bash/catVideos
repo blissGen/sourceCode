@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for i in *.mov; 	
+do 
+	echo "file '$i'" >> videoList.txt; 
+done 
+
+ffmpeg -f concat -safe 0 -i videoList.txt -c copy catVideo.mov
+
+echo \n Process Complete \n\n
+
+exit

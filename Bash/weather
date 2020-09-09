@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo -e "\n"
+
+curl wttr.in/$@?format="%l:+%c+%t+%w+%m" 
+
+echo -e "\n\n"
+
+
+exit

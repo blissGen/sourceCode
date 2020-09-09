@@ -1,0 +1,57 @@
+#!/bin/bash 
+
+ascii-edit() {
+
+	for t in "$@";
+	do 
+		ascii-process $t
+	done
+
+	echo $'\nprocess complete\n\n' 
+
+	exit
+
+}
+
+ascii-process() {
+
+	cd dl-content
+
+	mkdir -p frames/a-text/a-frames
+
+	for i in *.mp4; do ffmpeg -i *.mp4 -ss $t -t 00:08 clip.mp4; done
+
+	ffmpeg -i clip.mp4 -r 10 frames%2d.jpg && mv *.jpg frames
+
+	cd frames
+
+	for i in *.jpg; do jp2a ${i} --output=${i%%}.txt; done && mv *.txt a-text
+
+	cd a-text
+
+	#2478x1170 2505x1200 2590x1250 2640x1250
+
+	for i in *.txt; 
+	do 
+		convert -size 2478x1170 xc:black -font /Library/Fonts/FreeMono.ttf 
+						-pointsize 40 -fill white -annotate +35+50 "@${i}" ${i%%}.png; 
+	done
+	
+	mv *.png a-frames
+
+	cd a-frames 
+
+	convert *.png -delay 10 ap-${t}.gif 
+
+	mv *.gif ~/Home/ap-project/output
+
+	rm -r -f ~/Home/ap-project/dl-content/frames 
+					 ~/Home/ap-project/dl-content/clip.mp4
+
+	cd ~/Home/ap-project
+
+	echo $'\nascii-gif complete\n' 
+
+}
+
+ascii-edit $@

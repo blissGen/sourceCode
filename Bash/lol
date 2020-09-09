@@ -1,0 +1,11 @@
+#!/bin/bash
+
+lol () {
+
+	figlet -f cosmic $@ | lolcat 
+
+}
+
+lol $@ && lol $@ >~/Desktop/lol-output.txt
+
+exit

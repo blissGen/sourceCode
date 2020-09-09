@@ -1,0 +1,12 @@
+#!/bin/bash
+
+fsPlay () {
+
+	fluidsynth -a coreaudio -m coremidi
+	~/Home/LilyPond/soundfonts/kawaiStereoGrand.sf2 ~/Home/Lilypond/musicalText/drafts/mainDraft/$1.midi
+
+}
+
+fsPlay $1 
+
+exit

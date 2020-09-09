@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ql () {
+	
+	qlmanage -p $@
+
+}
+
+ql $@
+
+exit
+
