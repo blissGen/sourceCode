@@ -5,7 +5,7 @@ upper = \relative c'' {
 	\key c \major
 	\time 4/4
 
-	c2 c2
+	c2 c
 }
 
 lower = \relative c {
@@ -13,7 +13,7 @@ lower = \relative c {
 	\key c \major
 	\time 4/4
 
-	c1
+	c2 c
 }
 
 \header {
