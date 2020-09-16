@@ -30,7 +30,7 @@ def main():
             Z = np.float32(Z)
             criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10,
                         1.0)
-            k_mean = 2
+            k_mean = 5
             ret, label, center = cv2.kmeans(Z, k_mean, None, criteria, 10,
                                             cv2.KMEANS_RANDOM_CENTERS)
             center = np.uint8(center)
