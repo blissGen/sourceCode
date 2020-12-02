@@ -9,7 +9,7 @@ violinOne = \new Voice \relative c'' {
 
 	r2 | r1 |
 
-	c,1 | g'4 f ees d 
+	c,1 | g'4. f8 ees4. d8 
 	| d8 ees c4( c2) | \acciaccatura b16 c2 \acciaccatura des16 c2 | 
 	aes 1 | \break  aes'4. g8 g4. g8 | 
 	f1 | aes4. g8 g4. g8 |
@@ -78,6 +78,6 @@ cello = \new Voice \relative c, {
   >>
   \layout { }
   \midi { 
-		\tempo 4 = 110 
+		\tempo 4 = 160 
 	}
 }
