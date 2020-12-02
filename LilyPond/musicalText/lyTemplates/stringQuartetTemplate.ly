@@ -1,32 +1,39 @@
 global= {
-  \time 4/4
-  \key c \major
+
 }
 
 violinOne = \new Voice \relative c'' {
-  c2 d
-  e1
-  \bar "|."
+	\key c \major 
+	\time 4/4
+
+	c
 }
 
 violinTwo = \new Voice \relative c'' {
-  g2 f
-  e1
-  \bar "|."
+	\key c \major 
+	\time 4/4
+
+	c
 }
 
 viola = \new Voice \relative c' {
   \clef alto
-  e2 d
-  c1
-  \bar "|."
+	\key c \major 
+	\time 4/4
+
+	c
 }
 
-cello = \new Voice \relative c' {
-  \clef bass
-  c2 b
-  a1
-  \bar "|."
+cello = \new Voice \relative c, {
+	\clef bass
+ 	\key c \major 
+	\time 4/4
+
+	c
+}
+
+\header {
+	tagline = ""
 }
 
 \score {
@@ -41,5 +48,5 @@ cello = \new Voice \relative c' {
     << \global \cello >>
   >>
   \layout { }
-  \midi { }
+  \midi { \tempo 4 = 110 }
 }
