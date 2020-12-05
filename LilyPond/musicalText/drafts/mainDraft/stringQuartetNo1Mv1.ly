@@ -10,9 +10,9 @@ violinOne = \new Voice \relative c'' {
 	r2 | r1 |
 
 	c,1 | g'4. f8 ees4. d8 
-	| d8 ees c4( c2) | \acciaccatura b16 c2 \acciaccatura des16 c2 | 
-	aes 1 | \break  aes'4. g8 g4. g8 | 
-	f1 | aes4. g8 g4. g8 |
+	| d8 ees c4( c2) | \acciaccatura b16 c2 \acciaccatura des16 c4. g8 | 
+	aes 1 | \break  aes'4. g8 g4. f8 | 
+	f1 | aes4. g8 g4. f8 |
 	f1 | g'4 r r2 |
 
 
@@ -26,8 +26,8 @@ violinTwo = \new Voice \relative c'' {
 	r1 | r1 | 
 	r1 | \break r1 | 
 	r1 | r1 | 
-	f'4. ees8 ees4. es8 | d1
-	f4. ees8 ees4. es8 | d4 r r2
+	f'4. ees8 ees4. d8 | d1
+	f4. ees8 ees4. d8 | d4 r r2
 	
 }
 
