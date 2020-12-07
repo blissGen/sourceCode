@@ -12,8 +12,9 @@ violinOne = \new Voice \relative c'' {
 	c,1 | g'4. f8 ees4. d8 
 	| d8 ees c4( c2) | \acciaccatura b16 c2 \acciaccatura des16 c4. g8 | 
 	aes 1 | \break  aes'4. g8 g4. f8 | 
-	f1 | aes4. g8 g4. f8 |
-	f1 | g'4 r r2 |
+	f1 | a4. gis8 gis4. fis8 |
+	fis1 | <g' g,>4 <g g,> <g g,> <g g,> |
+	<c c,> <aes aes,> <g g,>2 |  
 
 
 }
@@ -27,7 +28,7 @@ violinTwo = \new Voice \relative c'' {
 	r1 | \break r1 | 
 	r1 | r1 | 
 	f'4. ees8 ees4. d8 | d1
-	f4. ees8 ees4. d8 | d4 r r2
+	ges4. d8 ees4. ees8 | d4 ees d ees | 
 	
 }
 
@@ -37,12 +38,11 @@ viola = \new Voice \relative c' {
 	\time 4/4
 	
 	g4 r | g1 | 
-
-	ees4 ees ees ees | ees ees ees g | 
-	ees ees ees ees | ees ees ees e | 
-	f f f f | \break f f f f |
-	aes aes aes aes | aes aes aes aes |
-	fis fis fis fis | <g b>4 r r2 |
+	ees4:8 ees: ees: ees: | ees: ees: ees: g: | 
+	ees: ees: ees: ees: | ees: ees: ees: e: | 
+	f: f: f: f: | \break f: f: f: f: |
+	aes: aes: aes: aes: | aes: aes: aes: aes: |
+	fis: fis: fis: fis: | <g b>4 <ees c'> <g b> <ees c'> |
  
 }
 
@@ -53,11 +53,12 @@ cello = \new Voice \relative c, {
 
 	g'4 r | g1 |
 
-	c4 c c c | c c c b | 	
-	c c c c | c c c bes| 
-	aes aes aes aes | \break f f f f|
-	f f f f | fis fis fis fis | 
-	fis fis fis fis | g4 r r2 | 
+	c4:8 c: c: c: | c: c: c: b: | 	
+	c: c: c: c: | c: c: c: bes: | 
+	aes: aes: aes: aes: | \break f: f: f: f: |
+	f: f: f: f: | fis: fis: fis: fis: | 
+	fis: fis: fis: fis: | g4 g g g | 
+	g fis \tuplet 3/2 {g8 aes g } \omit TupletNumber \tuplet 3/2 { fis g fis } |
 
 }
 
