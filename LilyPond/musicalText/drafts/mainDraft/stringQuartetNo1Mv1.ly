@@ -14,8 +14,8 @@ violinOne = \new Voice \relative c'' {
 	aes 1 | \break  aes'4. g8 g4. f8 | 
 	f1 | a4. gis8 gis4. fis8 |
 	fis1 | <g' g,>4 <g g,> <g g,> <g g,> |
-	<c c,> <aes aes,> <g g,>2 |  
-
+	<c c,> <aes aes,> <g g,>2 | \break
+	r1 | <g c>4 r4 r2 |
 
 }
 
@@ -23,13 +23,15 @@ violinTwo = \new Voice \relative c'' {
 	\key c \minor 
 	\time 4/4
 
-	<c, g' ees'>4 r | <bis g' d'> r r r | 
+	<c, g' ees'>4 r | <b g' d'> r r r | 
 	r1 | r1 | 
 	r1 | \break r1 | 
 	r1 | r1 | 
 	f'4. ees8 ees4. d8 | d1
 	ges4. d8 ees4. ees8 | d4 ees d ees | 
-	
+	f ees d2 | \break
+	r1 | <ees c'>4 r4 r2 |
+
 }
 
 viola = \new Voice \relative c' {
@@ -43,6 +45,8 @@ viola = \new Voice \relative c' {
 	f: f: f: f: | \break f: f: f: f: |
 	aes: aes: aes: aes: | aes: aes: aes: aes: |
 	fis: fis: fis: fis: | <g b>4 <ees c'> <g b> <ees c'> |
+	<g( c>2 <g) b> | \break
+	r1 | <g c>4 r4 r2 |
  
 }
 
@@ -58,8 +62,10 @@ cello = \new Voice \relative c, {
 	aes: aes: aes: aes: | \break f: f: f: f: |
 	f: f: f: f: | fis: fis: fis: fis: | 
 	fis: fis: fis: fis: | g4 g g g | 
-	g fis \tuplet 3/2 {g8 aes g } \omit TupletNumber \tuplet 3/2 { fis g fis } |
-
+	g fis g2 | \break
+	\tuplet 3/2 {g8 aes g } \omit TupletNumber \tuplet 3/2 { f g f }  
+	\omit TupletNumber \tuplet 3/2 {ees f ees} \omit TupletNumber \tuplet 3/2 {d ees d} |
+	c4 r4 r2 |
 }
 
 \header {
