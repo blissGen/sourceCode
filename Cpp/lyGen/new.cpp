@@ -1,18 +1,45 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
-#include <algorithm>
-#include <fstream>
 
-#define lyGen "\
-#!/bin/bash \n\
-/Applications/LilyPond.app/Contents/Resources/bin/lilypond david.ly \n\
-exit \n\
-"
+using namespace std;
 
-int main() {
+class David 
+{
+private: 
+	string notes[15];
+	int rand_index;	
+public: 
+	void printNotes();
+	void generateNotes();
+	David();	
+};
 
-	std::string notes[] = {"a4 ", "b4 ", "c4 ", "d4 ", "e4 ", "f4 ", "g4 "};
+void David::generateNotes()
+{
+	rand_index = rand() %15;
+}	
+David::David()
+	: notes{"c'", "d'", "e'", "f'", "g'", "a'", "b'", "c''", "d''", "e''", 
+		"f''", "g''", "a''", "b''", "c'''"                
+		}		
+{
+	rand_index = rand() 15%;	
+}
+void David::printNotes() 
+{
+	#define lyGen "\
+	#!/bin/bash \n\
+	/Applications/LilyPond.app/Contents/Resources/bin/lilypond david.ly \n\
+	exit \n\
+	"
+	generateNotes();
 
 	std::ofstream o("david.ly");
 
@@ -25,10 +52,9 @@ int main() {
   o << "\t \\time 4/4" << std::endl;
 	o << "" << std::endl;
 
-/*	std::random_shuffle(&notes[1], &notes[7]);
-*/
-	for (unsigned int i = 0; i < 7; i++){
-		o << notes[i];
+	for (unsigned int i = 0; i < 15; i++){
+		o << rand_index+1 << notes[rand_index] << " ";
+		 
 	}	o << std::endl;
 
 	o << "" << std::endl;
@@ -51,6 +77,12 @@ int main() {
 
 	system(lyGen);
 
-	return 0;
+}	
+int main () 
+{
+	srand(time(0));
+	David newDavid;
 
+	newDavid.printNotes();
+	return 0;
 }
