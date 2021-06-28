@@ -1,0 +1,13 @@
+#!/bin/bash
+
+rdt() {
+
+	mv $@ /Users/VII/Home/rdt
+
+	rsync -avP -e ssh -p 22 /Users/VII/Home/rdt cntrl@73.151.163.206:/Users/cntrl/Home/rdt 
+
+	exit
+
+}
+
+rdt $@

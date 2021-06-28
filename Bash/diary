@@ -2,9 +2,9 @@
 
 diary() {
 
-cd ~/Home/entries 
+cd ~/Home/av/agMedia/text/md/entries
 
-vim "`\date`".txt
+vim "`\date`".md
 
 exit 
 

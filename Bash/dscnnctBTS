@@ -1,0 +1,3 @@
+#!/bin/bash
+
+blueutil --disconnect b8-d5-0b-4e-d9-f9 && blueutil --power 0;

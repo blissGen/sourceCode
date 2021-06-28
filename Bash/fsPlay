@@ -2,11 +2,11 @@
 
 fsPlay () {
 
-	fluidsynth -a coreaudio -m coremidi
-	~/Home/LilyPond/soundfonts/kawaiStereoGrand.sf2 ~/Home/Lilypond/musicalText/drafts/mainDraft/$1.midi
+	fluidsynth -a coreaudio -m coremidi -g 7.0 /Users/VII/Home/av/agMedia/audio/soundfonts/yamahaPiano.sf2 $(pwd)/$@
 
+	kill -INT 888
 }
 
-fsPlay $1 
+fsPlay $@ 
 
 exit

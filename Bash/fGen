@@ -1,0 +1,15 @@
+#!/bin/bash
+
+fGen() {
+
+	convert src.png -scale 48x f1.png
+	convert src.png -scale 32x f2.png
+	convert src.png -scale 16x f3.png
+
+	convert f?.png -colors 256 favicon.ico
+
+	exit
+
+}
+
+fGen

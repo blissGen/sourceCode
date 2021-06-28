@@ -1,0 +1,19 @@
+#!/bin/bash 
+
+p-fetch() {
+
+python3 00.01.py
+
+mkdir dl-content
+
+youtube-dl -o "~/ap-project/dl-content/%(title)s.%(ext)s" $(sed ''$@'!d' link_roll.txt)
+
+rm link_roll.txt
+
+echo $'\nprocess complete\n' 
+
+exit
+
+}
+
+p-fetch $@

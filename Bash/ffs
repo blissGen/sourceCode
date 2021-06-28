@@ -1,0 +1,20 @@
+#!/bin/bash
+
+ffs(){
+
+	cd /Users/VII/Home/prog/bashScript/ffs;
+
+	for w in "$@";
+	do
+		echo -n "$w " >> query.txt;
+	done;
+
+	/Applications/Firefox.app/Contents/MacOS/firefox -search "`cat query.txt`";
+
+	rm query.txt
+
+	exit;
+
+}
+
+ffs $@

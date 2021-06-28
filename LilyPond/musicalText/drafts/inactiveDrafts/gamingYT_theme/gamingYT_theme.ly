@@ -5,7 +5,7 @@ upper = \relative c' {
 	\key d \major
 	\time 4/4
 
-	\partial 8 fis16[ gis] \bar "||" | 
+	\partial 8 fis16[ gis] | 
 	a4 fis8[ a] r cis r  b~ | 
 	b2~ b4 r8 gis16[ ais] |
 	b4 gis8[ b] r dis r cis~ | 
@@ -27,7 +27,7 @@ lower = \relative c {
 	\key d \major
 	\time 4/4
 	
-	\partial 8 r8 \bar "||" |
+	\partial 8 r8 |
 	<fis cis>4. <a cis,>8 r <fis cis> r4 | 
 	b16[ fis dis b] a'[ fis dis b] dis e dis e dis4 | 
 
@@ -59,7 +59,9 @@ lower = \relative c {
 		\new Staff = "lower" \lower
 	>>
 
-	\layout { }
+	\layout { 
+		indent = #0 
+	}
 	\midi { 
 		\tempo 4 = 140
 	}

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+checkMarkets() {
+
+	chkmrkts 
+	exit
+
+}
+
+chkmrkts() {
+
+	PWD = $currentPATH
+	cd /Users/VII/Home/prog/bashScript/cryptoMarkets;
+
+	echo -e "\n"
+	echo "checking crypto prices..." | lolcat
+	echo -e "\n\n"
+
+	curl -H "X-CMC_PRO_API_KEY: c6b6c8c7-d7aa-4a78-8b82-d1c4d4d7a460" -H "Accept:application/json" -d "symbol=One" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest | jq > cryptoPrices.txt; 
+	
+	echo -e "\n" 
+	awk 'NR==11 || NR==36 || NR==37' cryptoPrices.txt; 
+	echo -e "\n" 
+
+	cd $currentPATH 
+
+}
+
+checkMarkets

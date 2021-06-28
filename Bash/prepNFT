@@ -1,0 +1,35 @@
+#!/bin/bash
+
+prepNFT() {
+
+	prepPNG
+
+	exit;
+
+}
+
+prepPNG() {
+
+	mkdir fnl 
+
+	mv *.png fnl 
+	
+	mkdir sm && cp fnl/*.png sm
+
+	cd sm	
+
+	mogrify -format jpg *.png && rm *.png
+
+	for item in $(ls);
+	do
+		convert $item -resize 35% $item; 				
+		exiftool -Comment="$item" $item;
+	done;
+
+	rm *l && cd ../
+
+	exiftool fnl/* >> fnl/exiftoolData.txt
+
+}
+
+prepNFT 

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+blueutil --power 1 && blueutil --connect b8-d5-0b-4e-d9-f9;

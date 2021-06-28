@@ -1,0 +1,40 @@
+#!/bin/bash
+
+david() {
+
+	mkdir output
+
+	for i in {1..4};
+	do	
+		mkdir iteration${i} && cd iteration${i}
+		
+		echo $'\ngenerating manuscript no. '${i}'. . .' && echo $'\n'
+		mkdir lyGen && cd lyGen
+	
+		~/Home/prog/programs/cpp/lyGen/lyGen
+		
+		echo $'\nformatting manuscript. . .\n'
+		convert -format png -density 500 david.pdf david.png
+		convert david.png -crop 4134x3066+0+0 davidFormatted.png
+		rm david.png
+	
+		cd ..
+
+		echo $'\ngenerating canvas no. '${i}'. . .' && echo $'\n'
+		canvasGen
+
+		cd canvas && mv ../lyGen/davidFormatted.png . 
+
+		echo $'\ncreating composite image. . .' && echo $'\n'
+		magick composite -gravity center davidFormatted.png canvasF*.png David${i}.png
+		mv D* ../../output/ 
+		
+		cd ../../	
+
+		echo $'\nprelude no. '${i}'. . .' && echo $'\n'
+
+	done;	
+	
+}
+
+david

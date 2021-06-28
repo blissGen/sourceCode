@@ -17,11 +17,17 @@ gifProcess () {
 
 	cd media
 
+# create fileName var and use awk to create nExFileName var (no extention)
+
+	echo "`ls`" > titleOfContent.txt
+	ToC=$(cat titleOfContent.txt)  
+	ToC_nEx=$(echo $ToC | awk -F\. '{print $1}')
+
 	mkdir -p frames/lFrames
 
-	for i in *.mov; 
+	for i in $ToC; 
 	do 
-		ffmpeg -i *.mov -ss $t -t 00:03 clip.mov; 
+		ffmpeg -i $ToC -ss $t -t 00:03 clip.mov; 
 	done
 
 	ffmpeg -i clip.mov -r 10 frames%2d.jpg && mv *.jpg frames
@@ -34,13 +40,15 @@ gifProcess () {
 
 	mogrify *.jpg +dither -colors 16 -resize 30% *.jpg 
 
-	convert *.jpg -delay 40 media-${t}.gif
+	convert *.jpg -delay 40 ${t}_$ToC_nEx.gif
 
-	mv *.gif ~/myWindow/mkGif/output
+	rm -r -f ~/Home/prog/bashScript/mkGif/media/titleOfContent.txt
 
-	cd ~/myWindow/mkGif 
+	mv *.gif ~/Home/prog/bashScript/mkGif/output
 
-	rm -r -f ~/Home/mkGif/media/clip.mov ~/Home/mkGif/media/frames/
+	cd ~/Home/prog/bashScript/mkGif 
+
+	rm -r -f ~/Home/prog/bashScript/mkGif/media/clip.mov ~/Home/prog/bashScript/mkGif/media/frames
 
 	echo $'\ngif complete\n'
 
