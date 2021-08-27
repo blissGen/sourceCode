@@ -12,7 +12,6 @@ lpFormat() {
 	. "$SCRIPT_PATH" format 
 	
 	exit 
-
 }
 
 lpFormat $1 $2 $3

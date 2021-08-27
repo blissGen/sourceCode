@@ -2,7 +2,7 @@
 
 upper = \relative c'' {
 	\clef treble
-	\key c \major
+	\key f \minor
 	\time 4/4
 
 	c2 c
@@ -10,7 +10,7 @@ upper = \relative c'' {
 
 lower = \relative c {
 	\clef bass
-	\key c \major
+	\key f \minor
 	\time 4/4
 
 	c2 c
