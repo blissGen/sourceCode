@@ -1,0 +1,18 @@
+#!/bin/bash 
+SCRIPT_PATH="/usr/local/sbin/lilypond"
+
+lpFormat() {
+
+	key=$1
+	mode=$2	
+	fileName=$3
+
+	sed "s/\\key.*[a-g].*[\\majorin]/\\key "$key" \\\\"$mode"/g" $fileName > format.ly
+
+	. "$SCRIPT_PATH" format 
+	
+	exit 
+
+}
+
+lpFormat $1 $2 $3
