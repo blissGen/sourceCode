@@ -73,37 +73,55 @@ lower = \relative c {
 	\time 4/4
 	f4 <c' f aes> f, <f' aes c> 
 	\break
+
 	f, <c' f aes> f, <g' bes c e>
 	f, <c' f aes> f, <f' aes c> 
 	f, <c' f aes> f, <g' bes c e>
+	\break
+
+%	ees, <des' ees g> <des ees g> <des ees g>
+%	r <des ees g> <des ees g> <g, ees'>
 
 }
-
 \header {
+	title = \markup {
+		\center-column {
+			\vspace #2
+			\huge \caps "Nocturne"
+			\vspace #3
+		}
+	}
 	tagline = ""
 }
 \paper {
+	#(set-paper-size "a4")
   system-system-spacing.basic-distance = #18
 	score-system-spacing =
 		#'((basic-distance . 12)
 			(minimum-distance . 6)
 			(padding . 1)
 			(stretchability . 12))
+	page-breaking = #ly:optimal-breaking
 }
 \score {
-	\new PianoStaff
+	\new PianoStaff \with { 
+		instrumentName = \markup {
+		  \number {
+		 		2.
+		  }
+		}
+	}
 	<<
 		\new Staff = "upper" \upper
 		\new Staff = "lower" \lower
 	>>
 	\layout {
-		#(layout-set-staff-size 22)
+		#(layout-set-staff-size 20.5)
 	}
 	\midi { 
 		\tempo 4 = 125
 	}
 }
-
 %\markup {
 %  \line {
 %  	hello world
