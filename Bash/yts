@@ -1,5 +1,8 @@
 #!/bin/bash
 
+FPATH='/Applications/Firefox.app/Contents/MacOS/firefox'
+YTURL='https://www.youtube.com/results?search_query='
+
 yts(){
 
 	cd /Users/VII/Home/prog/bashScript/yts;
@@ -9,11 +12,13 @@ yts(){
 		echo -n "$w " >> query.txt;
 	done;
 
-	sed 's/ /+/g' query.txt > formattedQuery.txt && mv formattedQuery.txt query.txt
+	sed 's/ /+/g' query.txt > formattedQuery.txt 
+	
+	mv formattedQuery.txt query.txt;
 
-	/Applications/Firefox.app/Contents/MacOS/firefox https://www.youtube.com/results?search_query="`cat query.txt`";
+	$FPATH $YTURL"`cat query.txt`";
 
-	rm query.txt
+	rm query.txt;
 
 	exit;
 
