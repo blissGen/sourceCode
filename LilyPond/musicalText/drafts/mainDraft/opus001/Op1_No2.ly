@@ -38,6 +38,9 @@ upper = \relative c'' {
 	<des f>8 c <aes f'> des <c f> aes <des f> c 
 	<aes f'> des <c f> aes <f g'>16 g aes bes <c e> 4
 
+	<des f>8 c <bes f'> des <c f> bes <des f> c 
+	bes des <c f> bes bes16 b c des f4~ 
+
 }
 
 lower = \relative c {
@@ -79,8 +82,8 @@ lower = \relative c {
 	f, <c' f aes> f, <g' bes c e>
 	\break
 
-%	ees, <des' ees g> <des ees g> <des ees g>
-%	r <des ees g> <des ees g> <g, ees'>
+	ees, <des' ees g> <des ees g> <des ees g>
+	r <des ees g> <des ees g> <g, ees'>
 
 }
 \header {

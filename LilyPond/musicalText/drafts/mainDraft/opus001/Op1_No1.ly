@@ -15,19 +15,41 @@ lower = \relative c {
 
 	c2 c
 }
-
 \header {
+	title = \markup {
+		\center-column {
+			\vspace #2
+			\huge \caps "Prelude"
+			\vspace #3
+		}
+	}
 	tagline = ""
 }
-
+\paper {
+	#(set-paper-size "a4")
+  system-system-spacing.basic-distance = #18
+	score-system-spacing =
+		#'((basic-distance . 12)
+			(minimum-distance . 6)
+			(padding . 1)
+			(stretchability . 12))
+	page-breaking = #ly:optimal-breaking
+}
 \score {
-	\new PianoStaff
-	<<
+	\new PianoStaff \with { 
+		instrumentName = \markup {
+		  \number {
+		 		1.
+		  }
+		}
+	}	<<
 		\new Staff = "upper" \upper
 		\new Staff = "lower" \lower
 	>>
 
-	\layout { }
+	\layout {
+		#(layout-set-staff-size 20.5)
+	}	
 	\midi { 
 		\tempo 4 = 100
 	}
