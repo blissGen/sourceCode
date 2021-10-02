@@ -1,0 +1,29 @@
+#!/bin/bash
+
+gitChUsr() {
+
+	case $1 in 
+
+		devUser)	
+			git config user.name "devUserContact" 
+			git config user.email "developer.user.contact@protonmail.com"
+			echo 'switched to user devUser' | lolcat
+			echo '\n'
+			;;
+
+		blissGen)
+			git config user.name "blissGen" 
+			git config user.email "blissGen.comm@gmail.com"
+			echo 'switched to user blissGen' | lolcat
+			echo '\n'
+			;;
+
+		*) 
+			echo 'please enter a valid user. . .'	
+			echo '\n'
+			;;
+
+	esac		
+
+}
+gitChUsr $1
